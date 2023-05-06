@@ -73,28 +73,6 @@ def greedy_best_first_search(graph, start, goal):
     return None # pas de chemin trouvé
 
 
-import networkx as nx
-import heapq
-
-class Graph:
-    def __init__(self):
-        self.graph = nx.DiGraph()
-
-    def add_node(self, node, heuristic):
-        self.graph.add_node(node, heuristic=heuristic)
-
-    def add_edge(self, node1, node2, cost):
-        self.graph.add_edge(node1, node2, cost=cost)
-
-    def set_heuristic(self, node, heuristic):
-        self.graph.nodes[node]['heuristic'] = heuristic
-
-    def set_cost(self, node1, node2, cost):
-        self.graph.edges[node1, node2]['cost'] = cost
-
-    def get_neighbors(self, node):
-        return list(self.graph.neighbors(node))
-    
     
 def a_star_search(graph, start, goal):
     frontier = [(0, start)] # file de priorité (f = g + h, nœud)
@@ -126,31 +104,30 @@ def a_star_search(graph, start, goal):
     return None # pas de chemin trouvé
 
 # Create graph
-# Create graph
-graph = Graph()
-graph.add_node('A', 5)
-graph.add_node('B', 2)
-graph.add_node('C', 3)
-graph.add_node('D', 8)
-graph.add_node('E', 1)
-graph.add_edge('A', 'B', 2)
-graph.add_edge('A', 'C', 3)
-graph.add_edge('B', 'D', 1)
-graph.add_edge('C', 'D', 3)
-graph.add_edge('C', 'E', 4)
-graph.set_heuristic('A', 5)
-graph.set_heuristic('B', 2)
-graph.set_heuristic('C', 3)
-graph.set_heuristic('D', 1)
-graph.set_heuristic('E', 0)
+# # Create graph
+# graph = Graph()
+# graph.add_node('A', 5)
+# graph.add_node('B', 2)
+# graph.add_node('C', 3)
+# graph.add_node('D', 8)
+# graph.add_node('E', 1)
+# graph.add_edge('A', 'B', 2)
+# graph.add_edge('A', 'C', 3)
+# graph.add_edge('B', 'D', 1)
+# graph.add_edge('C', 'D', 3)
+# graph.add_edge('C', 'E', 4)
+# graph.set_heuristic('A', 5)
+# graph.set_heuristic('B', 2)
+# graph.set_heuristic('C', 3)
+# graph.set_heuristic('D', 1)
+# graph.set_heuristic('E', 0)
 
-# Find path from A to D using A* search
+# # Find path from A to D using A* search
 
-result = a_star_search(graph, 'A', 'D')
-if result is not None:
-    path, cost = result
-    print('Path:', path)
-    print('Cost:', cost)
-else:
-    print('No path found')
-
+# result = a_star_search(graph, 'A', 'D')
+# if result is not None:
+#     path, cost = result
+#     print('Path:', path)
+#     print('Cost:', cost)
+# else:
+#     print('No path found')
